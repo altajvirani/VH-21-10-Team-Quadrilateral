@@ -19,20 +19,15 @@ class Structure {
     objDiv[ele].className = eleclass;
     document[_target].appendChild(objDiv[ele]);
   };
-  tablerow = (ele, target, data, eleid, eleclass) => {
-    let _target = target ? target : "body";
-    objDiv[ele] = document.createElement("tr");
-    objDiv[ele].innerHTML = data;
-    objDiv[ele].id = eleid;
-    objDiv[ele].className = eleclass;
-    document[_target].appendChild(objDiv[ele]);
-  };
 }
 let struct = new Structure();
-
+let loc = document.querySelector(".location");
 displayData = () => {
   jsonData.data.contacts.regional.forEach((element) => {
     console.log(element.number);
-    struct.tablerow("tr", "body", element.loc, "loc", "loc");
+    struct.divParent("loc", "body", element.loc, "loc", "");
+  });
+  jsonData.data.contacts.regional.forEach((element) => {
+    struct.divParent("num", "body", element.number, "num", "");
   });
 };
