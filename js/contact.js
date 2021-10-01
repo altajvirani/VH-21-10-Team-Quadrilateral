@@ -10,30 +10,37 @@ fetch("https://api.rootnet.in/covid19-in/contacts")
     jsonData = data;
 
     displayData();
-    let body = document.getElementById("mainbody");
-    let maindiv = document.createElement("div").appendChild(body);
-    let cardbody = document.createElement("div");
-    let h5 = document.createElement("h5");
-    let p = document.createElement("p");
   });
-class Structure {
-  divParent = (ele, target, data, eleid, eleclass) => {
-    let _target = target ? target : "body";
-    objDiv[ele] = document.createElement("div");
-    objDiv[ele].innerHTML = data;
-    objDiv[ele].id = eleid;
-    objDiv[ele].className = eleclass;
-    document[_target].appendChild(objDiv[ele]);
-  };
-}
-let struct = new Structure();
-let loc = document.querySelector(".location");
+divParent = (ele, target, data, eleid, eleclass) => {
+  let _target = target ? target : "body";
+  objDiv[ele] = document.createElement("div");
+  objDiv[ele].innerHTML = data;
+  objDiv[ele].id = eleid;
+  objDiv[ele].className = eleclass;
+  document[_target].appendChild(objDiv[ele]);
+};
+
+divChild = (ele, target, data, eleid, eleclass) => {
+  let _target = target ? target : "body";
+  objDiv[ele] = document.createElement("div");
+  objDiv[ele].innerHTML = data;
+  objDiv[ele].id = eleid;
+  objDiv[ele].className = eleclass;
+  objDiv[_target].appendChild(objDiv[ele]);
+};
 displayData = () => {
+  divParent("wrapper", "body", "", "main-wrapper", "d-flex justify-content-around");
+  divChild("locationdiv", "wrapper", "", "location", "location1");
+  divChild("location", "locationdiv", "Locations", "location", "location");
+
+  divChild("numberdiv", "wrapper", "", "number", "number1");
+  divChild("contact", "numberdiv", "numbers", "number", "number");
+
   jsonData.data.contacts.regional.forEach((element) => {
     console.log(element.number);
-    struct.divParent("loc", "body", element.loc, "loc", "");
+    divChild("loc", "locationdiv", element.loc, "loc", "loc row");
   });
   jsonData.data.contacts.regional.forEach((element) => {
-    struct.divParent("num", "body", element.number, "num", "");
+    divChild("num", "numberdiv", element.number, "num", "num row");
   });
 };
