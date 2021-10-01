@@ -20,7 +20,10 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
-  </head>
+        <!-- Include the following MapmyIndia javascript code into your webpage -->
+        <script src="https://maps.mapmyindia.com/covid-places/showNearbyCovidPlacesOnMap.js"></script>
+        
+       
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Covid</a>
@@ -38,12 +41,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
-
-          <li class="nav-item">
-            <!-- Search form -->
-            <input class="form-control searchbox" type="text" placeholder="By Location & hospital name" aria-label="Search" />
+          <li class="nav-item active">
+            <a class="nav-link" href="contactdetails.html">ContactDetails</a>
           </li>
         </ul>
       </div>
@@ -59,5 +60,12 @@
       </div>
       <div class="card-footer text-muted"></div>
     </div>
+ <!-- define the div into which the nearby COVID places widget from MapmyIndia needs to be loaded -->
+ <div id="nearby-covid-places-mapmyindia"></div>
+ <!-- call the following code AFTER the mapmyindia javascript file has loaded -->
+ <script type="text/javascript">
+ loadNearbyCovidCentresMapmyIndiaDiv(document.getElementById("nearby-covid-places-mapmyindia"));
+ </script>
+ 
   </body>
 </html>
