@@ -8,6 +8,7 @@ fetch("https://data.covid19india.org/data.json")
     console.log(data);
     jsonData = data;
     document.body.id = "main body";
+    // document.body.classList = " row";
     displayData();
   });
 class Structure {
@@ -20,19 +21,30 @@ class Structure {
   };
   cardBody = (ele, target, data, eleclass, eleid) => {
     let _target = target ? target : "body";
-    objDiv[ele] = document.createElement("div");
+    objDiv[ele] = document.createElement("card");
     objDiv[ele].innerHTML = data;
     objDiv[ele].className = eleclass;
     objDiv[ele].id = eleid;
     objDiv[ele].style = "background-color:lightcyan";
     document[_target].appendChild(objDiv[ele]);
   };
-  tabs = (ele, target, data, eleid) => {};
 }
 let structure = new Structure();
 displayData = () => {
-  structure.divParent("nav", "body", "darshan", "dk");
-  lastele = jsonData.tested.years1stdose.pop();
-  console.log(lastele);
-  structure.cardBody("card", "body", "", "card-body", "cardbody");
+  lastele = jsonData.tested;
+  var firstdose = [];
+  lastele.forEach((element) => {
+    firstdose.push(element.years1stdose);
+  });
+  var seconddose = [];
+  lastele.forEach((element) => {
+    seconddose.push(element.years2nddose);
+  });
+  var totalSampleTested = [];
+  lastele.forEach((element) => {
+    totalSampleTested.push(element.totalsamplestested);
+  });
+  document.getElementById("1stdose").innerHTML = `1st Dose Vaccinated : ${firstdose.pop()}`;
+  document.getElementById("2nddose").innerHTML = `2nd Dose Vaccinated : ${seconddose.pop()}`;
+  document.getElementById("totalsample").innerHTML = `Total sample tested : ${totalSampleTested.pop()}`;
 };
