@@ -5,10 +5,16 @@ fetch("https://api.rootnet.in/covid19-in/contacts")
     return res.json();
   })
   .then((data) => {
+    document.body.id = "mainbody";
     console.log(data);
     jsonData = data;
 
     displayData();
+    let body = document.getElementById("mainbody");
+    let maindiv = document.createElement("div").appendChild(body);
+    let cardbody = document.createElement("div");
+    let h5 = document.createElement("h5");
+    let p = document.createElement("p");
   });
 class Structure {
   divParent = (ele, target, data, eleid, eleclass) => {
