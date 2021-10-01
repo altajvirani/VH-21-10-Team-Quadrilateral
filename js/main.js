@@ -7,26 +7,26 @@ fetch("https://data.covid19india.org/data.json")
   .then((data) => {
     console.log(data);
     jsonData = data;
-    document.body.id = "main body";
+    document.body.id = "mainbody";
     // document.body.classList = " row";
     displayData();
   });
 class Structure {
-  divParent = (ele, target, data, eleid) => {
+  divParent = (ele, target, data, eleid, eleclass) => {
     let _target = target ? target : "body";
     objDiv[ele] = document.createElement("div");
     objDiv[ele].innerHTML = data;
     objDiv[ele].id = eleid;
+    objDiv[ele].className = eleclass;
     document[_target].appendChild(objDiv[ele]);
   };
-  cardBody = (ele, target, data, eleclass, eleid) => {
+  buttonStructure = (ele, target, data, eleid, eleclass) => {
     let _target = target ? target : "body";
-    objDiv[ele] = document.createElement("card");
+    objDiv[ele] = document.createElement("button");
     objDiv[ele].innerHTML = data;
-    objDiv[ele].className = eleclass;
     objDiv[ele].id = eleid;
-    objDiv[ele].style = "background-color:lightcyan";
-    document[_target].appendChild(objDiv[ele]);
+    objDiv[ele].className = eleclass;
+    objDiv[_target].appendChild(objDiv[ele]);
   };
 }
 let structure = new Structure();
@@ -44,7 +44,13 @@ displayData = () => {
   lastele.forEach((element) => {
     totalSampleTested.push(element.totalsamplestested);
   });
+
   document.getElementById("1stdose").innerHTML = `1st Dose Vaccinated : ${firstdose.pop()}`;
   document.getElementById("2nddose").innerHTML = `2nd Dose Vaccinated : ${seconddose.pop()}`;
   document.getElementById("totalsample").innerHTML = `Total sample tested : ${totalSampleTested.pop()}`;
+  structure.divParent("main", "body", `<br>`, "", "text-center");
+  structure.buttonStructure("button", "main", "contact details", "contact-btn", "btn btn-info");
+  document.getElementById("contact-btn").onclick = () => {
+    location.href = "./contactdetails.html";
+  };
 };
