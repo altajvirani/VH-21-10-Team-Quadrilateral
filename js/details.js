@@ -8,8 +8,9 @@ fetch(url)
   .then((data) => {
     jsonData = data;
     document.body.id = "body";
+
     displayData();
-    console.log(data);
+    console.log(jsonData);
   });
 
 displayData = () => {

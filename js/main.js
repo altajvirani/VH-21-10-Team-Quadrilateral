@@ -8,6 +8,7 @@ fetch("https://data.covid19india.org/data.json")
     console.log(data);
     jsonData = data;
     document.body.id = "mainbody";
+
     // document.body.classList = " row";
     displayData();
   });
@@ -48,8 +49,4 @@ displayData = () => {
   document.getElementById("1stdose").innerHTML = `1st Dose Vaccinated : ${firstdose.pop()}`;
   document.getElementById("2nddose").innerHTML = `2nd Dose Vaccinated : ${seconddose.pop()}`;
   document.getElementById("totalsample").innerHTML = `Total sample tested : ${totalSampleTested.pop()}`;
-
-  document.getElementById("contact-btn").onclick = () => {
-    location.href = "./contactdetails.html";
-  };
 };

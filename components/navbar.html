@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Covid</title>
-    <script src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/main.css" />
     <!-- CSS only -->
     <link
@@ -20,15 +19,17 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
-        <!-- Include the following MapmyIndia javascript code into your webpage -->
-        <script src="https://maps.mapmyindia.com/covid-places/showNearbyCovidPlacesOnMap.js"></script>
-        
-       
+    <!-- Include the following MapmyIndia javascript code into your webpage -->
+    <script src="https://maps.mapmyindia.com/covid-places/showNearbyCovidPlacesOnMap.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/covidupdates.js"></script>
+    <script src="../js/details.js"></script>
+    <script src="../js/main.js"></script>
+  </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
       <a class="navbar-brand" href="#">Covid</a>
-     
-      <div class="" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="/">Home</a>
@@ -45,23 +46,5 @@
         </ul>
       </div>
     </nav>
-    <div class="card text-center">
-      <div class="card-header"></div>
-      <div class="card-body" style="background-color: lightcyan">
-        <div class="row">
-          <div class="col" id="1stdose"></div>
-          <div class="col" id="totalsample"></div>
-          <div class="col" id="2nddose"></div>
-        </div>
-      </div>
-      <div class="card-footer text-muted"></div>
-    </div>
- <!-- define the div into which the nearby COVID places widget from MapmyIndia needs to be loaded -->
- <div id="nearby-covid-places-mapmyindia"></div>
- <!-- call the following code AFTER the mapmyindia javascript file has loaded -->
- <script type="text/javascript">
- loadNearbyCovidCentresMapmyIndiaDiv(document.getElementById("nearby-covid-places-mapmyindia"));
- </script>
- 
   </body>
 </html>

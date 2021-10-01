@@ -7,6 +7,7 @@ fetch("https://api.rootnet.in/covid19-in/contacts")
   .then((data) => {
     document.body.id = "mainbody";
     console.log(data);
+
     jsonData = data;
 
     displayData();
