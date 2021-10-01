@@ -17,7 +17,7 @@ displayData = () => {
   divParent("wrapper", "body", "", "wrapper", "wrapper row");
   jsonData.forEach((ele) => {
     console.log(ele.DISTRICT);
-    divChild("card", "wrapper", ``, "card", "card col-sm-4");
+    divChild("card", "wrapper", ``, "cardetails", "carddetails col-sm-4");
     divChild("cardbody", "card", "", "cardbody", "card-body");
     divChild("cardtitle", "cardbody", `${ele.DISTRICT}`, "", "card-title");
     divChild("cardsubtitle", "cardbody", "", "cardsubtitle", "card-subtitle mb-2 text-muted");
