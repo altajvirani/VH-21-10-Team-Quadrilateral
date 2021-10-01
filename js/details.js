@@ -15,11 +15,15 @@ fetch(url)
 displayData = () => {
   var dist = "Anantapur";
   divParent("wrapper", "body", "", "wrapper", "wrapper row");
+  var District = [];
   jsonData.forEach((ele) => {
-    console.log(ele.DISTRICT);
+    District.push(ele.DISTRICT);
+  });
+  let uniqueChars = [...new Set(District)];
+  uniqueChars.forEach((ele) => {
     divChild("card", "wrapper", ``, "cardetails", "carddetails col-sm-4");
     divChild("cardbody", "card", "", "cardbody", "card-body");
-    divChild("cardtitle", "cardbody", `${ele.DISTRICT}`, "", "card-title");
+    divChild("cardtitle", "cardbody", `${ele}`, "", "card-title");
     divChild("cardsubtitle", "cardbody", "", "cardsubtitle", "card-subtitle mb-2 text-muted");
     divChild("cardtext", "cardbody", "", "card-text", "card-text");
   });
@@ -41,14 +45,3 @@ divChild = (ele, target, data, eleid, eleclass) => {
   objDiv[ele].className = eleclass;
   objDiv[_target].appendChild(objDiv[ele]);
 };
-{
-  /* <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div> */
-}
