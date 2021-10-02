@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/searchByDistrict.js"></script>
+    <style>
+      select {
+        margin-left: 550px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 115%">
+      <a class="navbar-brand" href="#">Covid</a>
+
+      <div class="" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./contactdetails.html">ContactDetails</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="./covidupdates.html">Latest Covid updates</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./searchByDistrict.html" style="float: right">Search By State</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./SearchbyDistrictAndState.html" style="float: right">Search By District & State</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <select id="selectstate" class="form-control" style="width: 150px" onchange="selected()">
+      <option value="https://api.covidbedsindia.in/v1/storages/608982e003eef31f34d05a71/Andhra%20Pradesh">Andhra Pradesh</option>
+      <option value="https://api.covidbedsindia.in/v1/storages/60a62cf2e75f9c105696eb38/Bihar">Bihar</option>
+      <option value="https://api.covidbedsindia.in/v1/storages/6089820e03eef3b588d05a6d/Tamil%20Nadu">Tamilnadu</option>
+      <option value="https://api.covidbedsindia.in/v1/storages/608d542333382c01aecf8c95/Uttarakhand">Uttrakhand</option>
+      <option value="https://api.covidbedsindia.in/v1/storages/609fc7dde75f9ccdd696eb35/Uttar%20Pradesh">utterpradesh</option>
+      <option value="https://api.covidbedsindia.in/v1/storages/608983fc03eef384cad05a78/West%20Bengal">westbengal</option>
+    </select>
+    <p id="seleced_item"></p>
+
+    <table class="table table-bordered">
+      <thead id="head" style="background-color: black; color: white">
+        <tr>
+          <th>STATE</th>
+          <th>DISTRICT</th>
+          <th>HOSPITAL NAME</th>
+          <th>CATEGORY</th>
+          <th>ICU TOTAL</th>
+          <th>ICU OCCUPIED</th>
+          <th>ICU VANCANT</th>
+          <th>OXYGEN BEDS TOTAL</th>
+          <th>OXYGEN BED OCCUPIED</th>
+          <th>OXYGEN BEDS VACANT</th>
+          <th>GENERAL BEDS TOTAL</th>
+          <th>GENERAL BEDS OCCUPIED</th>
+          <th>GENERAL BEDS AVAILABLE</th>
+          <th>VENTILATORS TOTAL</th>
+          <th>VENTILATORS VANCANT</th>
+          <th>LOCATION</th>
+          <th>LAT</th>
+          <th>LONG</th>
+        </tr>
+      </thead>
+      <tbody id="data"></tbody>
+    </table>
+  </body>
+</html>

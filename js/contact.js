@@ -30,18 +30,17 @@ divChild = (ele, target, data, eleid, eleclass) => {
   objDiv[_target].appendChild(objDiv[ele]);
 };
 displayData = () => {
-  divParent("wrapper", "body", "", "main-wrapper", "d-flex justify-content-around");
-  divChild("locationdiv", "wrapper", "", "location", "location1");
-  divChild("location", "locationdiv", "Locations", "location", "location");
-
-  divChild("numberdiv", "wrapper", "", "number", "number1");
-  divChild("contact", "numberdiv", "numbers", "number", "number");
-
+  let loc = document.querySelector(".locationn");
   jsonData.data.contacts.regional.forEach((element) => {
     console.log(element.number);
-    divChild("loc", "locationdiv", element.loc, "loc", "loc row");
+    let div = document.createElement("div");
+    div.innerHTML = element.loc;
+    loc.appendChild(div);
   });
+  let num = document.querySelector(".num");
   jsonData.data.contacts.regional.forEach((element) => {
-    divChild("num", "numberdiv", element.number, "num", "num row");
+    let div = document.createElement("div");
+    div.innerHTML = element.number;
+    num.appendChild(div);
   });
 };
