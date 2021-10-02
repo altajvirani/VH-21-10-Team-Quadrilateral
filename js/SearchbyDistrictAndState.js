@@ -19,7 +19,7 @@ function selectedState() {
         document.getElementById("data").innerHTML = temp;
         for (var i = 0; i < ud.length; i++) {
           var opt = ud[i];
-          console.log(opt);
+          //   console.log(opt);
           var el = document.createElement("option");
           el.textContent = opt;
           el.value = opt;
@@ -39,7 +39,7 @@ function getdname() {
 
   fetch(display1).then((res) => {
     res.json().then((data) => {
-      console.log(data);
+      //   console.log(data);
       if (data.length > 0) {
         var temp = "";
 
