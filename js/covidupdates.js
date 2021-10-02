@@ -13,7 +13,11 @@ fetch("https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATES
 displayData = () => {
   let arr;
   divParent("main-wrapper", "body", "", "wrapper", "wrapper");
-  divChild("nav", "main-wrapper", "", "nav", "nav");
+  //CHANGED:
+  setTimeout(() => {
+    divParent("nav", "main-wrapper", "", "nav", "nav"), 100;
+  });
+
   arr = JSON.stringify(jsonData.lastUpdatedAtApify);
   console.log(arr);
   document.querySelector(".date").innerHTML = ` ${"Updated Date: " + arr.slice(1, 11) + " Updated Time: " + arr.slice(12, 17)}`;
@@ -29,27 +33,32 @@ displayData = () => {
   }`;
   document.querySelector(".totalcases").innerHTML = `${jsonData.totalCases}`;
   document.querySelector(".deaths").innerHTML = `Total deaths: ${jsonData.deaths + " (+" + jsonData.deathsNew + ")↑"} `;
-  divChild("card-wrapper", "main-wrapper", "", "card-wrapper", "card-wrapper");
+  //changed
+  setTimeout(() => {
+    divParent("card-wrapper", "body", "", "card-wrapper", "card-wrapper");
+  }, 500);
   colors = ["primary", "secondary", "sucess", "warning"];
   function randomColor(colors) {
     return colors[Math.floor(Math.random() * colors.length)];
   }
   jsonData.regionData.forEach((element) => {
-    divCard(
-      "card",
-      "card-wrapper",
-      element.region,
-      "",
-      "card",
-      `card border-${randomColor(colors)} mb-3 contentcard`,
-      element.activeCases,
-      element.deceased,
-      element.totalInfected,
-      element.recovered
-    );
+    setTimeout(() => {
+      divCard(
+        "card",
+        "card-wrapper",
+        element.region,
+        "",
+        "card",
+        `card border-${randomColor(colors)} mb-3 contentcard`,
+        element.activeCases,
+        element.deceased,
+        element.totalInfected,
+        element.recovered
+      );
+    }, 500);
   });
 };
-divParent = (ele, target, data, eleid, eleclass) => {
+var divParent = (ele, target, data, eleid, eleclass) => {
   let _target = target ? target : "body";
   objDiv[ele] = document.createElement("div");
   objDiv[ele].innerHTML = data;
@@ -58,14 +67,6 @@ divParent = (ele, target, data, eleid, eleclass) => {
   document[_target].appendChild(objDiv[ele]);
 };
 
-divChild = (ele, target, data, eleid, eleclass) => {
-  let _target = target ? target : "body";
-  objDiv[ele] = document.createElement("div");
-  objDiv[ele].innerHTML = data;
-  objDiv[ele].id = eleid;
-  objDiv[ele].className = eleclass;
-  objDiv[_target].appendChild(objDiv[ele]);
-};
 divCard = (ele, target, header, data, eleid, eleclass, activecases, deceased, totalInfected, recovered) => {
   let _target = target ? target : "body";
   objDiv[ele] = document.createElement("div");

@@ -50,121 +50,91 @@ function getdname() {
               temp += "<td>" + u.STEIN_ID + "</td>";
               temp += "<td>" + u.DISTRICT + "</td>";
               temp += "<td>" + u.HOSPITAL_NAME + "</td>"; //available general beds
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + u.ICU_BEDS_TOTAL + "</td>";
-              temp += "<td>" + u.ICU_BEDS_OCCUPIED + "</td>";
               temp += "<td>" + u.ICU_BEDS_VACANT + "</td>";
-              temp += "<td>" + u.OXYGEN_SUPPORTED_BEDS_TOTAL + "</td>";
-              temp += "<td>" + u.OXYGEN_SUPPORTED_BEDS_OCCUPIED + "</td>";
               temp += "<td>" + u.OXYGEN_SUPPORTED_BEDS_VACANT + "</td>";
-              temp += "<td>" + u.BEDS_FOR_SUSPECTED_CASES_TOTAL + "</td>";
-              temp += "<td>" + u.BEDS_FOR_SUSPECTED_CASES_OCCUPIED + "</td>";
               temp += "<td>" + u.BEDS_FOR_SUSPECTED_CASES_VACANT + "</td>";
-              temp += "<td>" + u.VENTILATOR_TOTAL + "</td>";
               temp += "<td>" + u.VENTILATOR_VACANT + "</td>";
-              temp += "<td>" + "<a href=" + u.LOCATION + ">" + "click to visit LOCATION" + "</a>" + "</td>";
-              temp += "<td>" + u.LAT + "</td>";
-              temp += "<td>" + u.LONG + "</td></tr>";
+              if (u.LOCATION == null) {
+                temp += "<td>" + "-" + "</td>";
+              } else {
+                temp += `<td><a href="${u.LOCATION}" target="_blank"> click here  </a></td>`;
+              }
             } else if (selstate == "Andhra Pradesh") {
               temp += "<tr>";
               temp += "<td>" + u.STEIN_ID + "</td>";
               temp += "<td>" + u.DISTRICT + "</td>";
               temp += "<td>" + u.HOSPITAL_NAME + "</td>";
-              temp += "<td>" + u.AAROGYASRI_EMPANELMENT_STATUS + "</td>";
-              temp += "<td>" + u.ICU_TOTAL + "</td>";
-              temp += "<td>" + u.ICU_OCCUPIED + "</td>";
+
               temp += "<td>" + u.ICU_AVAILABLE + "</td>";
-              temp += "<td>" + u.OXYGEN_GENERAL_TOTAL + "</td>";
-              temp += "<td>" + u.OXYGEN_GENERAL_OCCUPIED + "</td>";
+
               temp += "<td>" + u.OXYGEN_GENERAL_AVAILABLE + "</td>";
-              temp += "<td>" + u.GENERAL_TOTAL + "</td>";
-              temp += "<td>" + u.GENERAL_OCCUPIED + "</td>";
+
               temp += "<td>" + u.GENERAL_AVAILABLE + "</td>";
               temp += "<td>" + u.VENTILATOR + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
+              if (u.LOCATION == null) {
+                temp += "<td>" + "-" + "</td>";
+              } else {
+                temp += `<td><a href="${u.LOCATION}" target="_blank"> click here  </a></td>`;
+              }
             } else if (selstate == "Uttarakhand") {
               temp += "<tr>";
               temp += "<td>" + u.STEIN_ID + "</td>";
               temp += "<td>" + u.DISTRICT + "</td>";
               temp += "<td>" + u.HOSPITAL_NAME + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + u.ICU_BEDS_TOTAL + "</td>";
-              temp += "<td>" + "--" + "</td>";
               temp += "<td>" + u.ICU_BEDS_AVAILABLE + "</td>";
-              temp += "<td>" + u.BEDS_WITH_OXYGEN_TOTAL + "</td>";
-              temp += "<td>" + "--" + "</td>";
+
               temp += "<td>" + u.BEDS_WITH_OXYGEN_AVAILABLE + "</td>";
-              temp += "<td>" + u.BEDS_WITHOUT_OXYGEN_TOTAL + "</td>";
-              temp += "<td>" + "--" + "</td>";
+
               temp += "<td>" + u.BEDS_WITHOUT_OXYGEN_AVAILABLE + "</td>";
               temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "<a href=" + u.LOCATION + ">" + "click to visit LOCATION" + "</a>" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td></tr>";
+              if (u.LOCATION == null) {
+                temp += "<td>" + "-" + "</td>";
+              } else {
+                temp += `<td><a href="${u.LOCATION}" target="_blank"> click here  </a></td>`;
+              }
             } else if (selstate == "Uttar Pradesh") {
               temp += "<tr>";
               temp += "<td>" + u.STEIN_ID + "</td>";
               temp += "<td>" + u.DISTRICT + "</td>";
               temp += "<td>" + u.HOSPITAL_NAME + "</td>";
-              temp += "<td>" + u.TYPE + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
               temp += "<td>" + "--" + "</td>";
               temp += "<td>" + "--" + "</td>";
               temp += "<td>" + u.TOTAL + "</td>";
-              temp += "<td>" + "--" + "</td>";
               temp += "<td>" + u.VACANT + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td></tr>";
+              if (u.LOCATION == null) {
+                temp += "<td>" + "-" + "</td>";
+              } else {
+                temp += `<td><a href="${u.LOCATION}" target="_blank"> click here  </a></td>`;
+              }
+              temp += "</tr>";
             } else if (selstate == "West Bengal") {
               temp += "<tr>";
               temp += "<td>" + u.STEIN_ID + "</td>";
               temp += "<td>" + u.DISTRICT + "</td>";
               temp += "<td>" + u.HOSPITAL_NAME + "</td>"; //available general beds
-              temp += "<td>" + u.TYPE + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
+              temp += "<td>--</td>";
               temp += "<td>" + u.CCU_BEDS_WITHOUT_VENTILATOR_VACANT + "</td>";
-              temp += "<td>" + u.CCU_BEDS_WITH_VENTILATOR_TOTAL + "</td>";
-              temp += "<td>" + u.COVID_BEDS_REGULAR_TOTAL + "</td>";
+
               temp += "<td>" + u.COVID_BEDS_REGULAR_VACANT + "</td>";
-              temp += "<td>" + u.COVID_BEDS_WITH_OXYGEN_TOTAL + "</td>";
-              temp += "<td>" + u.CCU_BEDS_WITH_VENTILATOR_TOTAL + "</td>";
-              temp += "<td>" + "--" + "</td>";
+
               temp += "<td>" + u.CCU_BEDS_WITH_VENTILATOR_VACANT + "</td>";
-              temp += "<td>" + "<a href=" + u.LOCATION + ">" + "click to visit LOCATION" + "</a>" + "</td>";
-              temp += "<td>" + u.LAT + "</td>";
-              temp += "<td>" + u.LONG + "</td></tr>";
+              if (u.LOCATION == null) {
+                temp += "<td>" + "-" + "</td>";
+              } else {
+                temp += `<td><a href="${u.LOCATION}" target="_blank"> click here  </a></td>`;
+              }
+              temp += "</tr>";
             } else if (selstate == "Bihar") {
               temp += "<tr>";
               temp += "<td>" + u.STEIN_ID + "</td>";
               temp += "<td>" + u.DISTRICT + "</td>";
               temp += "<td>" + u.FACILITY_NAME + "</td>"; //available general beds
-              temp += "<td>" + u.CATEGORY + "</td>";
-              temp += "<td>" + u.TOTAL_ICU_BEDS + "</td>";
-              temp += "<td>" + "--" + "</td>";
               temp += "<td>" + u.ICU_BEDS_VACANT + "</td>";
               temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
               temp += "<td>" + u.TOTAL_BEDS + "</td>";
-              temp += "<td>" + "--" + "</td>";
               temp += "<td>" + u.VACANT + "</td>";
               temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + "--" + "</td>";
-              temp += "<td>" + u.LAT + "</td>";
-              temp += "<td>" + u.LONG + "</td></tr>";
+              temp += "</tr>";
             }
           }
         });

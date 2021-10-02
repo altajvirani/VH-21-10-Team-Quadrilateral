@@ -12,23 +12,7 @@ fetch("https://api.rootnet.in/covid19-in/contacts")
 
     displayData();
   });
-divParent = (ele, target, data, eleid, eleclass) => {
-  let _target = target ? target : "body";
-  objDiv[ele] = document.createElement("div");
-  objDiv[ele].innerHTML = data;
-  objDiv[ele].id = eleid;
-  objDiv[ele].className = eleclass;
-  document[_target].appendChild(objDiv[ele]);
-};
 
-divChild = (ele, target, data, eleid, eleclass) => {
-  let _target = target ? target : "body";
-  objDiv[ele] = document.createElement("div");
-  objDiv[ele].innerHTML = data;
-  objDiv[ele].id = eleid;
-  objDiv[ele].className = eleclass;
-  objDiv[_target].appendChild(objDiv[ele]);
-};
 displayData = () => {
   let loc = document.querySelector(".locationn");
   jsonData.data.contacts.regional.forEach((element) => {
@@ -40,7 +24,7 @@ displayData = () => {
   let num = document.querySelector(".num");
   jsonData.data.contacts.regional.forEach((element) => {
     let div = document.createElement("div");
-    div.innerHTML = element.number;
+    div.innerHTML = `<a href='tel:${element.number}' >${element.number}</a>`;
     num.appendChild(div);
   });
 };
